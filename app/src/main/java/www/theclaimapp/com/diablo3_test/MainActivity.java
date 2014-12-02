@@ -31,7 +31,6 @@ public class MainActivity extends ActionBarActivity {
 
         tvBattleTag = (TextView) findViewById(R.id.tvBattleTag);
 
-
     }
 
 
@@ -74,7 +73,7 @@ public class MainActivity extends ActionBarActivity {
 
             @Override
             public void success(Profile profile, Response response) {
-                Toast.makeText(getApplicationContext(), profile.getBattleTag() + " Loaded! Status Code:" + response.getStatus(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), profile.getBattleTag() + " Loaded! Status Code:" + response.getStatus(), Toast.LENGTH_LONG).show();
 
             }
 
