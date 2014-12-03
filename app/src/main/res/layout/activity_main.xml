@@ -17,7 +17,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
+        android:id="@+id/etBattleTag"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/tvBattleTag"
         android:layout_alignParentRight="true"
@@ -29,9 +29,17 @@
         android:layout_height="wrap_content"
         android:text="login"
         android:id="@+id/bLogin"
-        android:layout_below="@+id/editText"
+        android:layout_below="@+id/etBattleTag"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:onClick="onClickLogin"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tvParagonLvl"
+        android:id="@+id/tvParagonLvl"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

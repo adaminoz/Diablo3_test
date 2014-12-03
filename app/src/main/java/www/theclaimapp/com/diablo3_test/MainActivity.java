@@ -21,7 +21,10 @@ import www.theclaimapp.com.diablo3_test.Models.Profile;
 public class MainActivity extends ActionBarActivity {
 
     private TextView tvBattleTag;
-    public static final String APIKEY = "/d3/profile/{battleTag}/?locale=en_US&apikey=2hfv7x7j4wyxaay9cf82myabz69ur92b";
+    private TextView tvParagonLvl;
+    private TextView etBattleTag;
+
+    public static final String APIKEY = "2hfv7x7j4wyxaay9cf82myabz69ur92b";
 
 
     @Override
@@ -30,6 +33,9 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         tvBattleTag = (TextView) findViewById(R.id.tvBattleTag);
+        tvParagonLvl = (TextView) findViewById(R.id.tvParagonLvl);
+        etBattleTag = (TextView) findViewById(R.id.etBattleTag);
+
 
     }
 
@@ -69,16 +75,22 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void onClickLogin(View view) {
-        BlizzardClient.getBlizzardApiClient().getUserProfile(tvBattleTag.getText().toString(), new Callback<Profile>() {
+        BlizzardClient.
+                getBlizzardApiClient().
+                getUserProfile(etBattleTag.getText().toString(), new Callback<Profile>() {
 
             @Override
-            public void success(Profile profile, Response response) {
-                Toast.makeText(getApplicationContext(), profile.getBattleTag() + " Loaded! Status Code:" + response.getStatus(), Toast.LENGTH_LONG).show();
+            public void success(Profile profileResult, Response response) {
+                Toast.makeText(getApplicationContext(), profileResult.getBattleTag() + " Loaded! Status Code:" + response.getStatus(), Toast.LENGTH_LONG).show();
+
+                tvParagonLvl.setText(String.valueOf(profileResult.getParagonLevel()));
 
             }
 
             @Override
             public void failure(RetrofitError error) {
+                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+
 
             }
         });

@@ -8,5 +8,6 @@
     <string name="bCharacters">Characters</string>
     <string name="tvCharacterSheet2">Character Sheet</string>
     <string name="tvBattleTag">Battle TagID:</string>
+    <string name="tvParagonLvl">Paragon Level</string>
 
 </resources>
